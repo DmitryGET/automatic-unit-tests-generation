@@ -1,0 +1,92 @@
+.cbutton {
+  position: absolute;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.editor {
+  background-color: #cdc6c6;
+  width: 1720px;
+  height: 600px;
+  top: 150px;
+  left: 100px;
+  gap: 0px;
+  border-radius: 10px;
+}
+
+.content {
+  display: grid;
+}
+
+textarea {
+  background-color: #697277;
+  width: 1240px;
+  border-radius: 10px;
+  outline: none;
+  resize: none;
+  height: 250px;
+  box-sizing: border-box;
+  border: none;
+  font-family: "EB Garamond", serif;
+  font-size: 30px;
+  line-height: 33.75px;
+  color: #ffffff;
+  align-items: center;
+  padding: 10px;
+}
+
+textarea::placeholder {
+  font-family: "EB Garamond", serif;
+  font-size: 30px;
+  line-height: 33.75px;
+  color: #ffffff;
+  align-items: center;
+  padding: 10px;
+}
+
+label {
+  font-family: "EB Garamond", serif;
+  font-size: 30px;
+  line-height: 33.75px;
+  color: #ffffff;
+}
+
+.submit-content {
+  padding-bottom: 94px;
+  padding-top: 94px;
+  display: grid;
+  width: 100%;
+}
+
+.text {
+  grid-column: 1;
+  width: 75%;
+  margin-top: 50px;
+}
+
+.buttons {
+  grid-column: 2;
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+.repeat {
+  width: 400px;
+  height: 70px;
+  background-color: #5c656b;
+  counter-reset: #ffffff;
+  font-family: "EB Garamond", serif;
+  font-size: 40px;
+  line-height: 45px;
+  color: #ffffff;
+  align-items: center;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  margin-top: 100px;
+}
+
+button[disabled] {
+  background-color: lightgray;
+  cursor: not-allowed;
+}

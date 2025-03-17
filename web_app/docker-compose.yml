@@ -1,0 +1,77 @@
+services:
+
+  front:
+    image: testgenai/frontend:latest
+    container_name: testgenai-frontend
+    restart: always
+    build:
+      context: ./DG-UnitTests
+    ports:
+      - 80:80
+    depends_on:
+      - back
+      - llm
+    networks:
+      - testgenai-net
+
+  back:
+    image: testgenai/backend:latest
+    container_name: testgenai-backend
+    restart: always
+    build:
+      context: ./TestGenAI
+    ports:
+      - 5001:3000
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - testgenai-net
+
+  llm:
+    image: ollama/ollama:latest
+    container_name: testgenai-llm
+    hostname: llm
+    volumes:
+      - ollama:/root/.ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    networks:
+      - testgenai-net
+
+  db:
+    image: postgres:alpine
+    container_name: testgenai-db
+    hostname: database
+    restart: always
+    environment:
+      - LANG=ru_RU.utf8
+      - POSTGRES_INITDB_ARGS=--locale-provider=icu --icu-locale=ru-RU
+      - PGDATA=/var/lib/postgresql/data
+      - POSTGRES_HOST=database
+      - POSTGRES_DB=testgen
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=12345
+    volumes:
+      - ./.data/postgresql:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 2s
+      timeout: 1s
+      retries: 20
+    networks:
+      - testgenai-net
+
+volumes:
+  ollama:
+    name: ollama
+
+networks:
+  testgenai-net:
+    driver: bridge
+    name: testgenai-net

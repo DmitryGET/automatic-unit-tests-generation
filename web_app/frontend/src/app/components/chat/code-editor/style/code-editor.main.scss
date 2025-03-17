@@ -1,0 +1,17 @@
+.editor-container {
+  display: flex;
+  flex-direction: column;
+  height: 648px;
+  padding: 20px;
+  width: 1078px;
+  background-color: #CDC6C6;
+  border-radius: 10px;
+  margin-top: 21px;
+}
+
+label {
+  font-family: "EB Garamond", serif;
+  font-size: 30px;
+  line-height: 33.75px;
+  color: #ffffff;
+}

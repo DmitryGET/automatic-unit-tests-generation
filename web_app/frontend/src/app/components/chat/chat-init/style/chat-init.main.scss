@@ -1,0 +1,85 @@
+.content {
+  display: grid;
+  padding-left: 92px;
+  padding-right: 92px;
+  padding-top: 44px;
+}
+
+.code-part {
+  grid-column: 1;
+}
+
+.chose-part {
+  grid-column: 2;
+}
+
+textarea {
+  background-color: #a6b4c7;
+  width: 1118px;
+  border-radius: 10px;
+  outline: none;
+  resize: none;
+  height: 250px;
+  box-sizing: border-box;
+  border: none;
+  font-family: "EB Garamond", serif;
+  font-size: 30px;
+  line-height: 33.75px;
+  color: #ffffff;
+  align-items: center;
+  padding: 10px;
+}
+
+textarea::placeholder {
+  font-family: "EB Garamond", serif;
+  font-size: 30px;
+  line-height: 33.75px;
+  color: #ffffff;
+  align-items: center;
+  padding: 10px;
+}
+
+label {
+  font-family: "EB Garamond", serif;
+  font-size: 30px;
+  line-height: 33.75px;
+  color: #ffffff;
+}
+
+.submit-content {
+  padding-bottom: 94px;
+  padding-top: 94px;
+  display: grid;
+  width: 100%;
+}
+
+.text {
+  grid-column: 1;
+}
+
+.btn {
+  padding-top: 250px;
+  width: auto;
+  height: auto;
+  grid-column: 2;
+}
+
+button {
+  width: 507px;
+  height: 100px;
+  background-color: #a2ff88;
+  counter-reset: #ffffff;
+  font-family: "EB Garamond", serif;
+  font-size: 30px;
+  line-height: 33.75px;
+  color: #ffffff;
+  align-items: center;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+}
+
+button[disabled] {
+  background-color: lightgray;
+  cursor: not-allowed;
+}

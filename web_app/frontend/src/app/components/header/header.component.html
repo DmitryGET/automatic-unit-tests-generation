@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="https://use.typekit.net/awr7mhe.css" />
+<header>
+  <div class="header-logo">
+    <img src="../../../assets/logo.svg" alt="DataGang" (click)="openMain()" />
+  </div>
+  <div class="header-links">
+    <div *ngIf="authService.isAuth | async; else unAuthorized">
+      <a class="header-links-list" (click)="openProfile()">{{
+        userData.getUserData()?.username
+      }}</a>
+      <a class="header-links-list" (click)="authService.logout()">Log Out</a>
+    </div>
+    <ng-template #unAuthorized>
+      <a class="header-links-list" (click)="openLogin()">Log In</a>
+      <a class="header-links-list" (click)="openRegister()">Sug In Up</a>
+    </ng-template>
+  </div>
+</header>

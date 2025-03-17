@@ -1,0 +1,14 @@
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap"
+  rel="stylesheet"
+/>
+<label>{{ title }}</label>
+<div class="dropdown" [ngClass]="styleClass">
+  <select (change)="onSelectChange($event)">
+    <option *ngFor="let item of data" [value]="item">
+      {{ item }}
+    </option>
+  </select>
+</div>

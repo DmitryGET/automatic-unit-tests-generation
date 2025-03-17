@@ -1,0 +1,42 @@
+header {
+  width: auto;
+  display: grid;
+  grid-column: 1 2;
+  margin-left: 42px;
+  margin-top: 20px;
+  height: 85px;
+  .header-logo {
+    grid-row: 1;
+    align-self: self-start;
+    height: 85px;
+    :hover {
+      cursor: pointer;
+    }
+  }
+  .header-links {
+    height: 85px;
+    grid-row: 1;
+    place-self: end;
+    justify-content: space-between;
+    width: auto;
+
+    .header-links-list {
+      margin-right: 55px;
+      :hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+a {
+  color: #ffffff;
+  font-family: "inknut-antiqua", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  font-style: normal;
+  line-height: 52px;
+  :hover {
+    cursor: pointer;
+  }
+}
