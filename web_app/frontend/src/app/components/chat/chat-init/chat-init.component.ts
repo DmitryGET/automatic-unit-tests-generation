@@ -17,6 +17,7 @@ import { tap } from 'rxjs';
 import { LoadingSpinnerComponent } from '../../loading-spinner/loading-spinner.component';
 import { TransportResponseService } from '../../../services/transport-response/transport-response.service';
 import { AuthService } from '../../../services/auth/auth.service';
+import { ThemeService } from '../../../services/theme/theme.service';
 
 @Component({
   selector: 'app-chat-init',
@@ -50,7 +51,8 @@ export class ChatInitComponent implements OnInit {
     private httpClient: HttpClient,
     private router: Router,
     private transportCode: TransportCodeService,
-    private transportResponse: TransportResponseService
+    private transportResponse: TransportResponseService,
+    public themeService: ThemeService
   ) {}
   ngOnInit(): void {
     this.transportCode.currentCode.subscribe((message) => {

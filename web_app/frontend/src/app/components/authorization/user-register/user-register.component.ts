@@ -14,6 +14,7 @@ import { AuthService } from '../../../services/auth/auth.service';
 import { IUser } from '../../../interfaces/user.interface';
 import { IRequest, IUserData } from '../../../interfaces/request.interface';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ThemeService } from '../../../services/theme/theme.service';
 
 @Component({
   selector: 'app-register',
@@ -35,7 +36,10 @@ export class UserRegisterComponent implements OnInit {
   private _destroyRef: DestroyRef = inject(DestroyRef);
   private _router: Router = inject(Router);
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    public themeService: ThemeService
+  ) {}
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group(

@@ -29,6 +29,7 @@ import {
   RouterOutlet,
 } from '@angular/router';
 import { TransportResponseService } from '../../services/transport-response/transport-response.service';
+import { ThemeService } from '../../services/theme/theme.service';
 
 @Component({
   selector: 'app-profile',
@@ -60,7 +61,8 @@ export class ProfilePageComponent implements OnInit {
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private router: Router,
-    private transportResponse: TransportResponseService
+    private transportResponse: TransportResponseService,
+    public themeService: ThemeService
   ) {
     this.changeUserInfoForm = this.formBuilder.group({
       username: ['username', Validators.required],

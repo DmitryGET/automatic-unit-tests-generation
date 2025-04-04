@@ -58,20 +58,31 @@
       </div>
     </form>
     <ng-container *ngIf="!changeUser; else other_content">
-      <button class="change-btn" type="submit" (click)="changeUserInfo()">
+      <button
+        class="change-btn"
+        [class.dark-theme]="themeService.isDarkTheme()"
+        type="submit"
+        (click)="changeUserInfo()"
+      >
         Редактировать
       </button>
     </ng-container>
     <ng-template #other_content
       ><button
         class="submit-btn"
+        [class.dark-theme]="themeService.isDarkTheme()"
         type="submit"
         [disabled]="changeUserInfoForm.invalid"
         (click)="onSubmit()"
       >
         Сохранить
       </button>
-      <button class="submit-btn" type="submit" (click)="cancel()">
+      <button
+        class="submit-btn"
+        [class.dark-theme]="themeService.isDarkTheme()"
+        type="submit"
+        (click)="cancel()"
+      >
         Отменить
       </button>
     </ng-template>
@@ -91,7 +102,11 @@
           <td>{{ chat.createdAt | date : "YYYY-MM-dd hh:mm:ss" }}</td>
           <td>{{ chat.name }}</td>
           <td>
-            <button class="open-button" (click)="goToMessage(chat.chatId)">
+            <button
+              class="open-button"
+              [class.dark-theme]="themeService.isDarkTheme()"
+              (click)="goToMessage(chat.chatId)"
+            >
               Open
             </button>
           </td>

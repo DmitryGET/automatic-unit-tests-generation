@@ -13,6 +13,7 @@ import { AuthService } from '../../../services/auth/auth.service';
 import { IUser } from '../../../interfaces/user.interface';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { IRequest, IUserData } from '../../../interfaces/request.interface';
+import { ThemeService } from '../../../services/theme/theme.service';
 
 @Component({
   selector: 'app-login',
@@ -35,7 +36,8 @@ export class UserLoginComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private _authService: AuthService
+    private _authService: AuthService,
+    public themeService: ThemeService
   ) {}
 
   ngOnInit() {

@@ -5,9 +5,21 @@
   rel="stylesheet"
 />
 <label>{{ title }}</label>
-<div class="dropdown" [ngClass]="styleClass">
-  <select (change)="onSelectChange($event)">
-    <option *ngFor="let item of data" [value]="item">
+<div
+  class="dropdown"
+  [class.dark-theme]="themeService.isDarkTheme()"
+  [ngClass]="styleClass"
+>
+  <select
+    [class.dark-theme]="themeService.isDarkTheme()"
+    (change)="onSelectChange($event)"
+  >
+    <option
+      class="opt"
+      [class.dark-theme]="themeService.isDarkTheme()"
+      *ngFor="let item of data"
+      [value]="item"
+    >
       {{ item }}
     </option>
   </select>

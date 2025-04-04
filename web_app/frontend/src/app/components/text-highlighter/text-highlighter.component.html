@@ -24,11 +24,20 @@
 <div class="content">
   <div class="text">
     <label>Введите участок кода, который нужно исправить</label>
-    <textarea placeholder="Add text" [(ngModel)]="selectedCode"></textarea>
+    <textarea
+      [class.dark-theme]="themeService.isDarkTheme()"
+      placeholder="Add text"
+      [(ngModel)]="selectedCode"
+    ></textarea>
   </div>
   <div class="buttons">
     <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
-    <button class="repeat" (click)="sendRepeat()" [disabled]="isLoading">
+    <button
+      class="repeat"
+      [class.dark-theme]="themeService.isDarkTheme()"
+      (click)="sendRepeat()"
+      [disabled]="isLoading"
+    >
       <svg
         width="39"
         height="38"

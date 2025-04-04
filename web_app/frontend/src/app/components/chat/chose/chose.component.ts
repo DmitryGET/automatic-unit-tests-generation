@@ -3,15 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule, NgIf, NgTemplateOutlet } from '@angular/common';
 import { ProgrammingLanguageService } from '../../../services/programming-language/programming-language.service';
+import { ThemeService } from '../../../services/theme/theme.service';
 
 @Component({
   selector: 'app-chose',
   standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    CommonModule,
-    FormsModule,
-  ],
+  imports: [ReactiveFormsModule, CommonModule, FormsModule],
   providers: [ProgrammingLanguageService],
   templateUrl: 'chose.component.html',
   styleUrl: 'style/chose.main.scss',
@@ -28,7 +25,7 @@ export class ChoseComponent {
   public selectedItem: string | undefined;
 
   @Output() selectedChange = new EventEmitter<string>();
-
+  constructor(public themeService: ThemeService) {}
   public onSelectChange(event: Event): void {
     const selectElement = event.target as HTMLSelectElement;
     this.selectedItem = selectElement.value;

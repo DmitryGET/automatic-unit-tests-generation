@@ -30,7 +30,6 @@
         [title]="'Framework для тестов'"
         (selectedChange)="onFramework($event)"
         styleClass="test-framework-style"
-        
       ></app-chose>
     </div>
     <div>
@@ -42,7 +41,14 @@
       ></app-chose>
       <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
       <div class="btn">
-        <button (click)="sendMessage()" [disabled]="isLoading">Submit</button>
+        <button
+          class="bttn"
+          [class.dark-theme]="themeService.isDarkTheme()"
+          (click)="sendMessage()"
+          [disabled]="isLoading"
+        >
+          Submit
+        </button>
       </div>
     </div>
   </div>

@@ -17,6 +17,7 @@ import { tap } from 'rxjs';
 import { IContent, IMessage } from '../../interfaces/request.interface';
 import { query } from '@angular/animations';
 import { LoadingSpinnerComponent } from '../loading-spinner/loading-spinner.component';
+import { ThemeService } from '../../services/theme/theme.service';
 
 @Component({
   selector: 'app-text-highlighter',
@@ -38,7 +39,8 @@ export class TextHighlighterComponent implements OnInit {
     private httpClient: HttpClient,
     private router: Router,
     private route: ActivatedRoute,
-    private transportCode: TransportCodeService
+    private transportCode: TransportCodeService,
+    public themeService: ThemeService
   ) {}
   ngOnInit() {
     this.transportResponse.currentRes.subscribe((message) => {

@@ -83,6 +83,7 @@
     <div class="modal-container__buttons-container">
       <button
         class="submit-btn"
+        [class.dark-theme]="themeService.isDarkTheme()"
         type="submit"
         [disabled]="registerForm.invalid"
         (click)="onSubmit()"

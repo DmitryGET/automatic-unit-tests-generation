@@ -102,3 +102,63 @@ label {
   border-radius: 10px;
   margin-top: 80px;
 }
+
+@media (max-width: 1900px) {
+  .content {
+    padding-left: 76.666px; /* 92px * 0.8333 */
+    padding-right: 76.666px; /* 92px * 0.8333 */
+    padding-top: 36.666px; /* 44px * 0.8333 */
+  }
+
+  textarea {
+    width: 83%; /* 1240px * 0.8333 */
+    border-radius: 8.333px; /* 10px * 0.8333 */
+    height: 208.333px; /* 250px * 0.8333 */
+    font-size: 25px; /* 30px * 0.8333 */
+    line-height: 28.125px; /* 33.75px * 0.8333 */
+    padding: 8.333px; /* 10px * 0.8333 */
+  }
+
+  textarea::placeholder {
+    font-size: 25px; /* 30px * 0.8333 */
+    line-height: 28.125px; /* 33.75px * 0.8333 */
+    padding: 8.333px; /* 10px * 0.8333 */
+  }
+
+  label {
+    font-size: 25px; /* 30px * 0.8333 */
+    line-height: 28.125px; /* 33.75px * 0.8333 */
+  }
+
+  .submit-content {
+    padding-bottom: 78.333px; /* 94px * 0.8333 */
+    padding-top: 78.333px; /* 94px * 0.8333 */
+  }
+
+  .text {
+    margin-top: 41.666px; /* 50px * 0.8333 */
+  }
+
+  .buttons {
+    margin-left: -333.333px; /* 400px * 0.8333 */
+    margin-top: 83.333px; /* 100px * 0.8333 */
+  }
+
+  .repeat {
+    width: 333.333px; /* 400px * 0.8333 */
+    height: 58.333px; /* 70px * 0.8333 */
+    font-size: 33.333px; /* 40px * 0.8333 */
+    line-height: 37.5px; /* 45px * 0.8333 */
+    padding: 8.333px; /* 10px * 0.8333 */
+    padding-top: 8.333px; /* 10px * 0.8333 */
+  }
+
+  .submit {
+    width: 333.333px; /* 400px * 0.8333 */
+    height: 83.333px; /* 100px * 0.8333 */
+    font-size: 33.333px; /* 40px * 0.8333 */
+    line-height: 37.5px; /* 45px * 0.8333 */
+    padding: 8.333px; /* 10px * 0.8333 */
+    margin-top: 66.666px; /* 80px * 0.8333 */
+  }
+}

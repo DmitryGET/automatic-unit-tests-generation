@@ -1,7 +1,7 @@
 .submit-btn {
   width: 400px;
   height: 54px;
-  background-color: #5C656B;
+  background-color: #5c656b;
   border: none;
   border-radius: 10px;
   font-family: "EB Garamond", serif;
@@ -13,6 +13,13 @@
   padding-bottom: 5px;
   margin-left: 54px;
   margin-top: 50px;
+
+  &.dark-theme {
+    background-color: #01141b;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(100, 200, 255, 0.2),
+      0 0 20px rgba(100, 200, 255, 0.1), 0px 6px 1px 1px rgba(0, 0, 0, 0);
+  }
 }
 
 .wrapper {
