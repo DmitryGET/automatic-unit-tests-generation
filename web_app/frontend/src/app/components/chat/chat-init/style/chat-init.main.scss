@@ -79,10 +79,10 @@ label {
   border-radius: 10px;
 
   &.dark-theme {
-    background-color: #01141b;
-    border: 1px solid #fab689;
-    box-shadow: 0 0 10px rgba(235, 182, 8, 0.2),
-      0 0 20px rgba(235, 182, 7, 0.87), 0px 6px 1px 1px rgba(236, 174, 4, 0);
+    background: none;
+    border: 1px solid #92d28b;
+    box-shadow: 0 0 8px 2px #92d28b, inset 0 0 12px 1px #92d28b,
+      0px 6px 1px 1px rgba(0, 0, 0, 0);
   }
 }
 
@@ -174,10 +174,10 @@ button[disabled] {
     border-radius: 8.333px; /* 10px * 0.8333 */
 
     &.dark-theme {
-      background-color: #01141b;
-      border: 1px solid #fab689;
-      box-shadow: 0 0 10px rgba(235, 182, 8, 0.2),
-        0 0 20px rgba(235, 182, 7, 0.87), 0px 6px 1px 1px rgba(236, 174, 4, 0);
+      background: none;
+      border: 1px solid #92d28b;
+      box-shadow: 0 0 8px 2px #92d28b, inset 0 0 12px 1px #92d28b,
+        0px 6px 1px 1px rgba(0, 0, 0, 0);
     }
   }
 

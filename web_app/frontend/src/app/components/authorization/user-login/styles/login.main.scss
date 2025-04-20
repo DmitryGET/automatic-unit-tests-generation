@@ -15,10 +15,11 @@
   margin-top: 50px;
 
   &.dark-theme {
-    background-color: #01141b;
+    background: none;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 10px rgba(100, 200, 255, 0.2),
-      0 0 20px rgba(100, 200, 255, 0.1), 0px 6px 1px 1px rgba(0, 0, 0, 0);
+    box-shadow: 0 0 8px 2px rgba(100, 200, 255, 0.2),
+      inset 0 0 12px 1px rgba(100, 200, 255, 0.1),
+      0px 6px 1px 1px rgba(0, 0, 0, 0);
   }
 }
 
