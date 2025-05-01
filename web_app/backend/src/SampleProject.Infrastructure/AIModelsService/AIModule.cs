@@ -8,7 +8,7 @@ public class AIModule : Module
 {
     protected override void Load(ContainerBuilder builder)
     {
-        builder.RegisterType<LlamaModelService>()
+        builder.RegisterType<Gpt4FreeModelService>()
             .As<IAiModelService>()
             .InstancePerLifetimeScope();
     }

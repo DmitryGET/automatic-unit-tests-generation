@@ -1,7 +1,5 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
-using SampleProject.Application.Messages;
-using SampleProject.Application.Messages.Dto;
 
 namespace SampleProject.Application.AIModels.Dto.Responses;
 
@@ -10,15 +8,27 @@ public record GenerateAiAnswerWithChatContextResponse
     [JsonPropertyName("model")]
     public string Model { get; init; }
     
-    [JsonPropertyName("created_at")]
-    public DateTime CreatedAt { get; init; }
+    [JsonPropertyName("created")]
+    public long CreatedAt { get; init; }
 
-    [JsonPropertyName("message")]
-    public MessageInfo Message { get; init; }
+    [JsonPropertyName("choices")]
+    public List<Choice> Choices { get; set; }
+}
 
-    [JsonPropertyName("done")]
-    public bool Done { get; init; }
+public class Choice
+{
+    [JsonPropertyName("index")]
+    public int Index { get; set; }
     
-    [JsonPropertyName("total_duration")]
-    public long TotalDuration { get; init; }
+    [JsonPropertyName("message")]
+    public Message Message { get; set; }
+}
+
+public class Message
+{
+    [JsonPropertyName("role")]
+    public string Role { get; set; }
+    
+    [JsonPropertyName("content")]
+    public string Content { get; set; }
 }

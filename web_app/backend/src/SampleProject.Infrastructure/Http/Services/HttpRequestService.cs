@@ -67,11 +67,17 @@ internal class HttpRequestService : IHttpRequestService
     {
         var contentType = responseMessage.Content.Headers.ContentType;
 
-        if (contentType == null || !responseMessage.IsSuccessStatusCode)
+        if (contentType == null)
             return null;
 
         if (!ContentTypes.TryGetValue(contentType.MediaType!, out var foundType))
             throw new NotSupportedException($"{contentType.MediaType!} ContentType not supported!");
+
+        var content = await responseMessage.Content.ReadAsStringAsync();
+        if (!responseMessage.IsSuccessStatusCode)
+        {
+            throw new HttpRequestException($"HTTP Error: {responseMessage.StatusCode}, Body: {content}");
+        }
 
         return await HttpContentConverterFactory
             .CreateConverter(foundType)

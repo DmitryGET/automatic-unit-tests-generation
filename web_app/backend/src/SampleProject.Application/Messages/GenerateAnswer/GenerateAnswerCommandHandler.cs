@@ -51,10 +51,10 @@ public class GenerateAnswerCommandHandler : IRequestHandler<GenerateAnswerComman
             {
                 throw new EntityNotFoundException($"Chat with id '{request.ChatId}' was not found for user with id '{currentUserId}'");
             }
-        
+
             var messagesByChat = await _messageRepository.GetMessagesByChatIdAsync(request.ChatId);
             var maxOrderChat = messagesByChat.Count != 0 ? messagesByChat.Max(x => x.Order) : 0;
-                
+
             var userMessage = new Message
             {
                 Id = Guid.NewGuid(),
@@ -75,21 +75,21 @@ public class GenerateAnswerCommandHandler : IRequestHandler<GenerateAnswerComman
                 Role = m.Role,
                 Content = m.Content
             }).ToList();
-                
+
             var response = await _aiModelService.GenerateAiAnswerWithChatContextAsync(new GenerateAiAnswerWithChatContextRequest
             {
-                Model = "llama3",
+                Model = request.Model,
                 Messages = messageInfoList,
                 Stream = false
             });
-        
+
             var aiResponseMessage = new Message
             {
                 Id = Guid.NewGuid(),
                 ChatId = request.ChatId,
                 Order = maxOrderChat + 1,
                 Role = LlamaMessageRole.Assistant,
-                Content = response.Message.Content
+                Content = response.Choices[0].Message.Content
             };
         
             await _messageRepository.AddAsync(aiResponseMessage);
@@ -98,7 +98,7 @@ public class GenerateAnswerCommandHandler : IRequestHandler<GenerateAnswerComman
         
             return new GenerateAnswerResponse
             {
-                Content = response.Message.Content
+                Content = response.Choices[0].Message.Content
             };
         }
         catch (Exception e)
